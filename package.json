@@ -1,0 +1,22 @@
+{
+  "name": "abc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "feleManagement.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "refresh": "rm -rf node_modules && rm -rf package-lock.json && npm install commander && npm i -g"
+  },
+  "bin": {
+    "fele": "./cli/fele.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1",
+    "commander": "^9.4.1",
+    "g": "^2.0.1",
+    "node-couchdb": "^2.0.0"
+  }
+}

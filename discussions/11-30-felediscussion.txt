@@ -1,0 +1,68 @@
+11/30 discussion 
+
+Folder structure for fele
+
+fele
+    cli
+        scripts
+            network.js -> Network related functions for commands eg:createFeleNetwork.js etc
+            channel.js -> channel related functions for commands
+            chaincode.js -> chaincode related functions for commands
+            msp.js -> msp related functions for commands
+            env.js -> 
+        fele.js -> to store commands
+
+    conf(to store config files)
+        fele.ini -couchdb config
+
+    log 
+        to add log related files. winston package. 
+
+    chaincode (to store actual chaincode)
+        <<fele_network>> eg : Gatway folder if network name is Gateway
+            <<felechannel>>
+                <<felechaincode>>
+    client
+        to simulate fabric node sdk api. eg: enrollAdmin, createGateway.
+    bin
+        future collection for server side software or listener.  
+
+Commands & functions
+
+1. fele network create -nn Gateway --networkConfig state_felenet_gateway_v0_1.json
+        --Creates a database fele_gateway in couchdb
+        --Puts the networkConfig file in fele_gateway
+        --create a folder in the chaincode subfolder (Choose a global variable to store path eg: $FILE_PATH)
+
+2. fele network delete -nn Gateway
+        --deletes fele_gateway in couchdb
+
+3. fele network update -nn Gateway --networkConfig state_felenet_gateway_v0_1.json
+        --updates the database record to the new json.
+
+4. fele chaincode create --nn Gatway --cn GatewayCh -- ccn mbse --chaincodeFile chaincodeFile.js
+        --Stores the chaincode file in the fele/chaincode/Gateway/GatewayCh/mbse
+
+5.  fele chaincode --nn Gatway --cn GatewayCh -- ccn mbse --sn approveCR 
+        --Go to fele/chaincode/Gateway/GatewayCh/mbse: and execute approveCR (in mbse.js)
+
+11/30 teams chat
+
+[10:24 AM] Yue, Kwok-Bun
+<<felenetwork>>
+
+[10:25 AM] Yue, Kwok-Bun
+<<felechannel>>
+
+[10:25 AM] Yue, Kwok-Bun
+<<felechaincode>>
+
+[10:58 AM] Yue, Kwok-Bun
+fele chaincode --nn Gatway --cn GatewayCh -- ccn mbse --sn approveCR .....
+
+[10:59 AM] Yue, Kwok-Bun
+fele/chaincode/Gateway/GatewayCh/mbse: execute approveCR (in mbse.js)
+
+[11:00 AM] Yue, Kwok-Bun
+fele chaincode --path "fele/chaincode/GatewayCh/mbse"...
+
