@@ -1,29 +1,42 @@
 const NodeCouchDb = require('node-couchdb');
-const { username, password } = require('../../conf/dbConfig.json')
+const { couchdb } = require('../../conf/feleConf.json')
+const path = require("path");
+const fs = require('fs');
 
 const couch = new NodeCouchDb({
     auth: {
-        user: username,
-        pass: password
+        user: couchdb.username,
+        pass: couchdb.password
     }
 });
 
 const createDatabase = async(databaseName) => {
     console.log(databaseName)
-    couch.createDatabase(databaseName).then(() => {return true}, err => {
+    return couch.createDatabase(databaseName).then(() => {
+        return true
+    }, err => {
+        console.log(err)
         return false
     });
 }
 
 async function createNetwork(networkConfigfile, networkName) {
-    console.log(networkName)
     const database = "fele__"+networkName
     const fileName = "./"+networkConfigfile;
     var file = require(fileName);
-    console.log(file)
-    await createDatabase(networkName).then(() => {
-        couch.insert(networkName, file);
-    }) 
+    const databaseCreated = await createDatabase(database)
+    if(databaseCreated) couch.insert(database, file);
+    
+    //To create network folder under chaincode
+    var dir = "../../chaincode/"+networkName
+    dir = path.join(__dirname, dir);
+    try {
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir)
+        }
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 async function deleteNetwork(networkName) {

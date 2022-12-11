@@ -1,0 +1,27 @@
+chaincode: <<felenetwork>>/<<felechannel>>/<<chaincode>> in the chaincode folder.
+
+fele chaincode invoke -nn Gateway -cn GatewayChannel -ccn mbse updateCR parameters and options.
+
+>> Go to excute the SC updateCR in the chaincode fele/chaincode/Gateway/GatewayChannel/mbse.
+>> Plus other couchDB actions.
+
+fele chaincode invoke --path .../Gateway/GatewayChannel/mbse ... parameters and options.
+
+fele chaincode register create -nn Gateway -cn GatewayChannel -ccn mbse --path .../Gateway/GatewayChannel/mbse ... parameters and options.  (path is local path, not fele server path).
+
+fele chaincode register update -nn Gateway -cn GatewayChannel -ccn mbse --path .../Gateway/GatewayChannel/mbse ... parameters and options.
+
+fele chaincode register remove -nn Gateway -cn GatewayChannel -ccn mbse --path .../Gateway/GatewayChannel/mbse ... parameters and options.
+
+fele chaincode register create -nn Gateway -cn GatewayChannel -ccn mbse --path .../Gateway/GatewayChannel/mbse ... parameters and options.
+
+>   [1] copy .../Gateway/GatewayChannel/mbse (local copy) into <<felenetwork>>/<<felechannel>>/<<chaincode>> in the chaincode folder (fele server copy).
+>   [2] update CouchDB: chaincode version.
+>   [3] may consider adding version number, timestamp, ...., when experimenting and learning SC lifecycle evolution.
+
+fele chaincode invoke -nn Gateway -cn GatewayChannel -ccn mbse ... parameters and options.
+
+12-05
+
+path mandatory in line 10
+path optional in line 8

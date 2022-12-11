@@ -1,0 +1,15 @@
+{
+    "couchdb": {
+        "username" : "admin",
+        "password" : "adminpw",
+        "port": 5984
+    },
+    "logging": {
+
+    },
+    "server": {
+        "port": 10104
+    }
+}
+
+

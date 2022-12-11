@@ -1,0 +1,31 @@
+>fele chaincode register create -nn "Gateway" -cn "uhcl" -ccn "mbse" -p /user/channel/chaincode/mbse
+
+execute 
+
+Tn Preethi's computer, development of project x (Gateway) using a channel y (uhcl).
+
+Target the Fabric network gateway and channel uhcl.
+
+/user/exp/xy:
+
+three chaincodes to be stored in folders with the same names.
+[1] mbse
+[2] abac_exp
+[3] testfele
+
+Execute to register mbse :
+
+fele chaincode register create -nn "Gateway" -cn "uhcl" -ccn "mbse" -p /user/exp/xy/mbse
+
+One action:
+[A1] Copying the folder /user/exp/xy/mbse in Preethi's computer
+to the folder fele/chaincode/Gateway/uhcl/mbse folder.
+[A1.1] fele/chaincode should be created when initializing fele.
+[A1.2] fele/chaincode/Gateway may (should?) be created when the network Gateway is created.
+[A1.3] fele/chaincode/Gateway/uhcl may (should?) be created when the channel uhcl is created.
+[A1.4] If fele/chaincode/Gateway/uhcl/mbse does not exist,
+			Copy /user/exp/xy/mbse in the caller's computer to become fele/chaincode/Gateway/uhcl/mbse in the fele computer.
+		else  // update/register existin chaincode.
+			Copy /user/exp/xy/mbse in the caller's computer to replace fele/chaincode/Gateway/uhcl/mbse in the fele computer.
+			In the future, may stores copies for studying chaincode lifecycle.
+				E.g. fele/pastChaincode/Gateway/uhcl/mbse/v1 (etc.)

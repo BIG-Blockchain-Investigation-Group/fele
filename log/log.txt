@@ -1,0 +1,3 @@
+fele network create -nn gateway -nc state_felenet_gateway_v0_1.json
+fele channel create -nn gateway -cn uhcl
+fele chaincode register create -nn gateway -cn uhcl -ccn mbse path ..(local path)
